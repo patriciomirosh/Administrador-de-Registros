@@ -19,7 +19,7 @@ class App extends Component {
      
       <div>
       <Nav/>
-      <h2 class="col-sm-12 align-self-center text-center " id="HeaderHome">Inicio</h2>
+      <h1 class="col-sm-12 align-self-center text-center " id="HeaderHome"><em>Inicio</em></h1>
       <Main/>
       <hr/>
       <h2 style={{textAlign:"center"}} >Balance Actual</h2>

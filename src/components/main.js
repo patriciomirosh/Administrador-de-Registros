@@ -12,13 +12,11 @@ export default class Main extends Component {
                 </div>
                 <div class="col-5" id="ResizeTextOur">
                   
-                    <h1>Nosotros</h1>
-                    <p>Lorem ipsum dolor sit amet consec ratione deserunt, quisquam, voluptates beatae eligendi aliquid
-                        laudantium?
-                        Nostrum voluptatum suscipit eum voluptate inventore?
-                        Corporis necessitatibus tempora officia possimus ullam eveniet amet adipisci laboriosam
-                        officiis, beatae cupiditate exercitationem perspiciatis quidem voluptatum autem harum
-                        debitis ipsam nisi aliquam. Id unde esse accusantium, quaerat dolorem sit.</p>
+                    <h2>Bienvenido</h2>
+                    <p>Bienvenido al Administrador personal de Registros, Al seguir todos los pasos correctamente usted ya esta en posicion de poder manejar sus ingresos y egresos.
+                        Este Administrador se puede acoplar a la nescesidad que usted desea, Tambien se puede adquirir el modulo de <b>logging</b>, que envia al mail los registros solicitados junto a los niveles de Registros y ademas el modulo de Autenticacion via Username/Password.
+                        Para mas informacion contactese con su Provedor.
+                    </p>
                       
                 </div>
             </div>
