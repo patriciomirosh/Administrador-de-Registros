@@ -16,7 +16,7 @@ Cuenta de dos carpetas principales
 
 Descargar todos los archivos del repositorio
 Abrir el programa de gestion de base de datos: Yo en mi caso uso Xampp con los modulos Apache y Mysql encendidos.
-Crear la base de datos en my20_sql con el nombre node20_mysql, importar en esta base el archivo node20_mysql.sql,
+Crear la base de datos en MySQL con el nombre node20_mysql, importar en esta base el archivo node20_mysql.sql, (es una tabla con registros prearmados)..
 Con el cmd de node ubicarse en la carpeta nodejs y escribir el comando nodemon para que se conecte a la base de datos. Si se logra conectar dara el mensaje "Database server running"
 Luego con otra terminal de node ubicarse en la carpeta react y luego escribir el comando "npm start" y enter.
 El cual iniciara en el Navegador el cliente, tendra que habilitar el Cors en el navegador . 
