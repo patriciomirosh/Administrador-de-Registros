@@ -8,7 +8,7 @@ import Listado from './components/listado';
 import Nav from './components/navegador'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-
+import Main from './components/main'
 import'./sample/style.js'
 
 class App extends Component {
@@ -17,17 +17,20 @@ class App extends Component {
     return (
      
      <div>
-      <h1 class="col-sm-12 align-self-center text-center " id="HeaderHome">Inicio</h1>
+      
       <Nav/>
-      <Balance/>
-      <div><Last10/></div>
-      
-      
-     
-      
+      <h2 class="col-sm-12 align-self-center text-center " id="HeaderHome">Inicio</h2>
+      <Main/>
+      <hr/>
+      <div id="Balance"> <Balance  /></div>
+      <hr/>
+      <h2 style={{textAlign:"center"}} >Ver Ultimos Registros</h2>
+      <div id="Last"><Last10/></div>
+      <hr/>
+      <h2 style={{textAlign:"center"}}>Quiere Ingresar un nuevo Registro</h2>
       <Formapp/>
      
-      <br/>
+      <hr/>
 
       <Listado/>
     

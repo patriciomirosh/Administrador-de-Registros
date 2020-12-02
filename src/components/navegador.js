@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react'
 import icon from '../sample/icon1.png'
-
 export default class Nav extends Component {
     constructor(args) {
         super(args);
@@ -29,9 +28,9 @@ export default class Nav extends Component {
             </div>
             <nav class="accesos">
                 <ul>
-                    <li><a href="#" id="">BALANCE</a></li>
-                    <li><a href="#" id="">ULTIMOS DIEZ REGISTROS</a></li>
-                    <li><a href="#" id="">TODOS LOS REGISTROS</a></li>
+                    <li><a href="#Balance" >BALANCE</a></li>
+                    <li><a href="#Last" id="">ULTIMOS DIEZ REGISTROS</a></li>
+                    <li><a href="#All" id="">TODOS LOS REGISTROS</a></li>
                 </ul>
             </nav>
         </div>

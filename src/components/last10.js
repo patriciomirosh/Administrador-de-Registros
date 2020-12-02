@@ -93,6 +93,7 @@ export default class Last10 extends Component {
       <div  className="col-sm-12 align-self-center text-center " id="Last10Selector">
       <label>Para ver ultimos 10 Nuevos registros (ingresos o Egresos) seleccione una opcion:  .</label>
         <select
+          className="btn btn-info"
           id="ListadoIngresooEgreso"
           name="ListadoIngresooEgreso"
           value={this.state.ListadoIngresooEgreso}

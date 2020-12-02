@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 const api= axios.create({ baseURL:`http://localhost:3050` });
-
+const messageVisibilty="Mostrar Balance actual"
+const messageHidden="Ocultar Balance Actual"
 
 export default class Balance extends Component {
     
@@ -12,7 +13,8 @@ export default class Balance extends Component {
             BalanceIng: "",
             BalanceEg:"",
             hidden:true,
-            
+            message:"Mostrar Balance actual",
+            colorButton:"btn btn-info"
 
         }
     
@@ -22,8 +24,16 @@ export default class Balance extends Component {
         
         this.getBalanceIng()
         this.getBalanceEg()
+        if (this.state.hidden){
         this.setState({hidden:false})
-
+        this.setState({message:messageHidden})
+        this.setState({ colorButton:"btn btn-danger"})
+    }
+        else{ this.setState({hidden:true})
+        this.setState({message:messageVisibilty}) 
+        this.setState({ colorButton:"btn btn-info"})
+    }
+        
 
     }
 
@@ -51,8 +61,8 @@ export default class Balance extends Component {
     render() {
         return (<div>
             
-            <button value={this.state.ListadoIngresooEgreso}
-          onClick={this.onClick} name="balanceButon"> Mostrar mi Balance actual</button>
+           <div class="col-sm-12 align-self-center text-center " ><button value={this.state.ListadoIngresooEgreso}
+          onClick={this.onClick} name="balanceButon" className={this.state.colorButton} > {this.state.message}</button></div> 
             <div class="container sm"  id="ActualBalance" hidden={this.state.hidden}>
                 
                 <h1  class="col-sm-12 align-self-center text-center " > Tu Balance Actual es: </h1>
