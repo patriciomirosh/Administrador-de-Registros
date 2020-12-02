@@ -21,3 +21,10 @@ Con el cmd de node ubicarse en la carpeta nodejs y escribir el comando nodemon p
 Luego con otra terminal de node ubicarse en la carpeta react y luego escribir el comando "npm start" y enter.
 El cual iniciara en el Navegador el cliente, tendra que habilitar el Cors en el navegador . 
 
+
+
+Se realizo en React.js, el BackEnd  en Node.js con express, La base de datos en mySql
+
+
+Creador: Miroshnitshenko Patricio
+
