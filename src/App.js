@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import Formapp from './components/Formapp';
+import React, { Component } from "react";
+import Last10  from './components/last10';
+import Balance from './components/balance';
+import Listado from './components/listado';
+import Nav from './components/navegador'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
+import'./sample/style.js'
+
+class App extends Component {
+
+  render() {
+    return (
+     
+     <div>
+      <h1 class="col-sm-12 align-self-center text-center " id="HeaderHome">Inicio</h1>
+      <Nav/>
+      <Balance/>
+      <div><Last10/></div>
+      
+      
+     
+      
+      <Formapp/>
+     
+      <br/>
+
+      <Listado/>
+    
+     
+      </div>
+      
+    );
+  }
 }
 
 export default App;
