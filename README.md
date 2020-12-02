@@ -10,14 +10,14 @@ Cuenta de dos carpetas principales
 1) Nodejs = En donde se encuentra el archivo que realiza las peticiones y da las respuestas
 2) React = El archivo que funciona como interfaz del servidor
 3) Y tambien una  pequeña carpeta donde se encuentra la base de datos que esta hecha en mySQL que es usada de donde tomar las peticiones y actualizarla
-4)Se usa el localhost para realizar los intercambios entre la base de datos y el cliente.
+
 
 #Como usarlo : 
 
-1 forma)
 Descargar todos los archivos del repositorio
-Crear la base de datos con el nombre node20_mysql, importar en esta base el archivo node20_mysql.sql,
+Abrir el programa de gestion de base de datos: Yo en mi caso uso Xampp con los modulos Apache y Mysql encendidos.
+Crear la base de datos en my20_sql con el nombre node20_mysql, importar en esta base el archivo node20_mysql.sql,
 Con el cmd de node ubicarse en la carpeta nodejs y escribir el comando nodemon para que se conecte a la base de datos. Si se logra conectar dara el mensaje "Database server running"
-Luego con otra terminal de node ubicarse en la carpeta react y luego escribir el comando npm start
-El cual iniciara en el Navegador el cliente. 
+Luego con otra terminal de node ubicarse en la carpeta react y luego escribir el comando "npm start" y enter.
+El cual iniciara en el Navegador el cliente, tendra que habilitar el Cors en el navegador . 
 
