@@ -5,6 +5,7 @@ export default class Main extends Component {
     render() {
         return (
             <main>
+               
         <div class="container">
             <div class="row">
                 <div class="col-6" >

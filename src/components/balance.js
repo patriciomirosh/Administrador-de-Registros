@@ -14,7 +14,8 @@ export default class Balance extends Component {
             BalanceEg:"",
             hidden:true,
             message:"Mostrar Balance actual",
-            colorButton:"btn btn-info"
+            colorButton:"btn btn-info",
+            Username:this.props.Username,
 
         }
     
@@ -38,13 +39,13 @@ export default class Balance extends Component {
     }
 
     getBalanceIng = _ =>{
-        api.get('/balance').then(res1 => this.setState({BalanceIng:res1.data[0]["suma"]})
+        api.get(`/balance/${this.state.Username}`).then(res1 => this.setState({BalanceIng:res1.data[0]["suma"]})
         )
         .catch(err => console.error(err))
    
     }
     getBalanceEg = _ =>{
-        api.get('/balanceEg').then(res1 => this.setState({BalanceEg:res1.data[0]["suma"]})
+        api.get(`/balanceEg/${this.state.Username}`).then(res1 => this.setState({BalanceEg:res1.data[0]["suma"]})
         )
         .catch(err => console.error(err))
    

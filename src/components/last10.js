@@ -12,7 +12,8 @@ export default class Last10 extends Component {
       register: [],
       ListadoIngresooEgreso: "",
       listas: "",
-      
+      Username:this.props.Username,
+
     };
   }
   handleInputChange(event) {
@@ -26,7 +27,7 @@ export default class Last10 extends Component {
   }
   
   getRegister = (_) => {
-    api.get("/last10")
+    api.get(`/last10/${this.state.Username}`)
       .then((res) => this.setState({ register: res.data }))
       .catch((err) => console.error(err));
   };

@@ -17,7 +17,9 @@ export default class Listado extends Component {
       ID: "",
       hidden:true,
       message:"Ver Todos los Registros",
-      colorButton:"btn btn-info"
+      colorButton:"btn btn-info",
+      Username:this.props.Username,
+
     };
   }
 
@@ -50,7 +52,7 @@ export default class Listado extends Component {
 
   getRegister = (_) => {
     api
-      .get("/get")
+      .get(`/get/${this.state.Username}`)
       .then((res) => this.setState({ register10: res.data }))
 
       .catch((err) => console.error(err));
@@ -68,7 +70,7 @@ export default class Listado extends Component {
     a.push(document.getElementById(Fecha).value);
     a.push(document.getElementById(ID).value);
 
-    const urlUpdate = `http://localhost:3050/update/${a[3]}`;
+    const urlUpdate = `http://localhost:3050/update/${this.state.Username}/${a[3]}`;
 
     axios.put(urlUpdate, {
       Concepto: a[0],
@@ -81,7 +83,7 @@ export default class Listado extends Component {
 
     let ID = "ID" + arreglos;
     let Delete = document.getElementById(ID).value;
-    const urlDelete = `http://localhost:3050/delete/${Delete}`;
+    const urlDelete = `http://localhost:3050/delete/${this.state.Username}/${Delete}`;
     axios.delete(urlDelete);
     alert("El registro " + Delete+" ha sido eliminado, Actualize para ver los registros")
   };

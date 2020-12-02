@@ -16,7 +16,8 @@ export default class Formapp extends Component {
         message:"",
         NewLog:true,
         NewLogTextButton:"Quiere Ingresar un nuevo Registro",
-        
+        Username:this.props.Username,
+
       
    }}
    handleInputChange(event) {
@@ -30,7 +31,7 @@ export default class Formapp extends Component {
   }
   onSubmit= e =>{
     if (this.state.acept===true)
-    axios.post("http://localhost:3050/add",{
+    axios.post(`http://localhost:3050/add/${this.state.Username}`,{
          
         Concepto: this.state.Concepto,
         Monto:this.state.Monto,

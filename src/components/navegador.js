@@ -3,18 +3,7 @@
 import React, { Component } from 'react'
 import icon from '../sample/icon1.png'
 export default class Nav extends Component {
-    constructor(args) {
-        super(args);
-    
-        this.state = {
-          register10: [],
-          Concepto: "",
-          Monto: "",
-          Fecha: "",
-          Tipo: "",
-          ID: "",
-        };
-      }
+      
 
       render() {
         return(<header class="header">
