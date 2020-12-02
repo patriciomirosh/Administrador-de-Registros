@@ -15,6 +15,9 @@ export default class Listado extends Component {
       Fecha: "",
       Tipo: "",
       ID: "",
+      hidden:true,
+      message:"Ver Todos los Registros",
+      colorButton:"btn btn-info"
     };
   }
 
@@ -27,9 +30,23 @@ export default class Listado extends Component {
       [name]: value,
     });
   }
-  componentDidMount() {
+  onClickButton=() => {
     this.getRegister();
+    if (this.state.hidden){
+      this.setState({hidden:false})
+      this.setState({message:"Ocultar y Actualizar los Registros"})
+      this.setState({ colorButton:"btn btn-danger"})
   }
+      else{ this.setState({hidden:true})
+      this.setState({message:"Ver Todos los Registros"}) 
+      this.setState({ colorButton:"btn btn-info"})
+  
+  }
+
+
+  }
+  componentDidMount(){
+    this.getRegister();}
 
   getRegister = (_) => {
     api
@@ -78,8 +95,9 @@ export default class Listado extends Component {
 
     arreglos = arreglos + 1;
 
-    return (
-      <form
+    return (<list>
+     
+      <form hidden={this.state.hidden}
         name="Form"
         id={arreglos}
         onSubmit={this.onSubmit.bind(this, arreglos)}
@@ -147,12 +165,16 @@ export default class Listado extends Component {
           </div>
         </div>
       </form>
+      </list>
     );
   };
 
   render() {
-    return (<div>{this.state.register10.map(this.renderRegister)}
-        <p class="container sm">*Fecha tiene el formato dd/mm/yyyy, repitalo para actualizar el registro, sino dara como 00/00/0000 a la Fecha. Al eliminar o guardar Cambios para poder verlos se tiene que actualizar el navegador </p>  
+    return (<div>
+      
+       <div className="col-sm-12 align-self-center text-center"><button onClick={this.onClickButton} className={this.state.colorButton}>{this.state.message}</button></div>
+      {this.state.register10.map(this.renderRegister)}
+        <p class="container sm" hidden={this.state.hidden}>*Fecha tiene el formato dd/mm/yyyy, si no sigue este formato resultara como 00/00/0000 a la Fecha. Al eliminar o guardar Cambios para poder verlos se tiene que actualizar con el boton rojo</p>  
         </div> );
   }
 }

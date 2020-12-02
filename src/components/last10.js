@@ -19,17 +19,14 @@ export default class Last10 extends Component {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
-
+    this.getRegister();
     this.setState({
       [name]: value,
     });
   }
-  componentDidMount() {
-    this.getRegister();
-  }
+  
   getRegister = (_) => {
-    api
-      .get("/last10")
+    api.get("/last10")
       .then((res) => this.setState({ register: res.data }))
       .catch((err) => console.error(err));
   };
@@ -102,8 +99,8 @@ export default class Last10 extends Component {
         >
           
           <option value="">Seleccione una opcion</option>
-          <option value="0">Ingresos</option>
-          <option value="1">Egresos</option>
+          <option value="0" >Ingresos</option>
+          <option value="1" >Egresos</option>
         </select>
         </div>
         <div> {this.state.register.map(this.renderRegister)} </div>

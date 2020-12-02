@@ -30,6 +30,7 @@ export default class Nav extends Component {
                 <ul>
                     <li><a href="#Balance" >BALANCE</a></li>
                     <li><a href="#Last" id="">ULTIMOS DIEZ REGISTROS</a></li>
+                    <li><a href="#Form" id="">NUEVO REGISTROS</a></li>
                     <li><a href="#All" id="">TODOS LOS REGISTROS</a></li>
                 </ul>
             </nav>

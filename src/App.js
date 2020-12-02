@@ -16,25 +16,24 @@ class App extends Component {
   render() {
     return (
      
-     <div>
-      
+     
+      <div>
       <Nav/>
       <h2 class="col-sm-12 align-self-center text-center " id="HeaderHome">Inicio</h2>
       <Main/>
       <hr/>
+      <h2 style={{textAlign:"center"}} >Balance Actual</h2>
       <div id="Balance"> <Balance  /></div>
       <hr/>
       <h2 style={{textAlign:"center"}} >Ver Ultimos Registros</h2>
       <div id="Last"><Last10/></div>
       <hr/>
-      <h2 style={{textAlign:"center"}}>Quiere Ingresar un nuevo Registro</h2>
-      <Formapp/>
+      <h2 style={{textAlign:"center"}} >Nuevo Registro</h2>
+      <div id="Form"><Formapp/></div>
      
       <hr/>
-
-      <Listado/>
-    
-     
+      <h2 style={{textAlign:"center"}}>Ver Todos los Registros</h2>
+      <div id="All"><Listado/></div>
       </div>
       
     );

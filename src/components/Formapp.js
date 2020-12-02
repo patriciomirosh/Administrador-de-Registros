@@ -14,6 +14,8 @@ export default class Formapp extends Component {
         Tipo:"",
         acept:  "",
         message:"",
+        NewLog:true,
+        NewLogTextButton:"Quiere Ingresar un nuevo Registro",
         
       
    }}
@@ -43,7 +45,7 @@ export default class Formapp extends Component {
         return;
        }
        this.setState({
-       message: "Guardado correctamente"
+       message: "El Registro "+this.state.Concepto+ " fue creado correctamente"
     })
     
    }
@@ -57,12 +59,20 @@ export default class Formapp extends Component {
            }
            return true
        }
-   
+    
+    onClickForm = () =>{
+    if(this.state.NewLog==false){
+        this.setState({NewLog:true})
+        this.setState({NewLogTextButton:"Quiere Ingresar un nuevo Registro?"})
+    }else{this.setState({NewLog:false})
+    this.setState({NewLogTextButton:"Ocultar Formulario"})}}
+    
+    
     render() {
         return (
             <div>
-                
-           <form   onSubmit={this.onSubmit}>
+            <div className="col-sm-12 align-self-center text-center" onClick={this.onClickForm}><button className="btn btn-info">{this.state.NewLogTextButton} </button></div>
+           <form  hidden={this.state.NewLog} onSubmit={this.onSubmit}>
 
            <div id="Lista" class="container-sm ">
              <div class="row">
