@@ -28,7 +28,12 @@ class App extends Component {
       <h2 style={{textAlign:"center"}} >Ver Ultimos Registros</h2>
       <div id="Last"><Last10/></div>
       <hr/>
-      <h2 style={{textAlign:"center"}} >Nuevo Registro</h2>
+      <br/>
+      
+      <h1 style={{marginTop: "1%" , textAlign:"center"}}> ABR de Operaciones </h1>
+
+
+      <h2 style={{marginTop: "2%", textAlign:"center"}} >Nuevo Registro</h2>
       <div id="Form"><Formapp/></div>
      
       <hr/>
