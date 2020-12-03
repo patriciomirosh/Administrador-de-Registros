@@ -17,7 +17,9 @@ export default class Listado extends Component {
       ID: "",
       hidden:true,
       message:"Ver Todos los Registros",
-      colorButton:"btn btn-info"
+      colorButton:"btn btn-info",
+      Username:this.props.Username,
+
     };
   }
 
@@ -45,12 +47,11 @@ export default class Listado extends Component {
 
 
   }
-  componentDidMount(){
-    this.getRegister();}
+
 
   getRegister = (_) => {
     api
-      .get("/get")
+      .get(`/get/${this.props.Username1}`)
       .then((res) => this.setState({ register10: res.data }))
 
       .catch((err) => console.error(err));
@@ -68,7 +69,7 @@ export default class Listado extends Component {
     a.push(document.getElementById(Fecha).value);
     a.push(document.getElementById(ID).value);
 
-    const urlUpdate = `http://localhost:3050/update/${a[3]}`;
+    const urlUpdate = `http://localhost:3050/update/${this.props.Username1}/${a[3]}`;
 
     axios.put(urlUpdate, {
       Concepto: a[0],
@@ -81,7 +82,7 @@ export default class Listado extends Component {
 
     let ID = "ID" + arreglos;
     let Delete = document.getElementById(ID).value;
-    const urlDelete = `http://localhost:3050/delete/${Delete}`;
+    const urlDelete = `http://localhost:3050/delete/${this.props.Username1}/${Delete}`;
     axios.delete(urlDelete);
     alert("El registro " + Delete+" ha sido eliminado, Actualize para ver los registros")
   };
@@ -95,16 +96,16 @@ export default class Listado extends Component {
 
     arreglos = arreglos + 1;
 
-    return (<list>
+    return (<section>
      
       <form hidden={this.state.hidden}
         name="Form"
         id={arreglos}
         onSubmit={this.onSubmit.bind(this, arreglos)}
       >
-        <div class="container">
-          <div class="row">
-            <div class="col-sm">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm">
               {" "}
               <input
                 type="text"
@@ -116,7 +117,7 @@ export default class Listado extends Component {
                 placeholder={"Concepto: " + Concepto}
               />
             </div>
-            <div class="col-sm">
+            <div className="col-sm">
               {" "}
               <input
                 name={"Monto0" + arreglos}
@@ -128,7 +129,7 @@ export default class Listado extends Component {
                 type="number"
               />
             </div>
-            <div class="col-sm">
+            <div className="col-sm">
               {" "}
               <input
                 placeholder={"Fecha: " + Fecha}
@@ -140,21 +141,21 @@ export default class Listado extends Component {
               />
             </div>
 
-            <div class="col- ">
+            <div className="col- ">
               {" "}
               <label> {" " + Tipo + " ID "} </label>
             </div>
 
-            <div class="col-sm ">
+            <div className="col-sm ">
               {" "}
              
               <input name="ID" value={ID} id={"ID" + arreglos} />
             </div>
-            <div class="col-sm-1">
+            <div className="col-sm-1">
               {" "}
               <button type="submit" className="btn btn-primary">Guardar</button>
             </div>
-            <div class="col-sm-1">
+            <div className="col-sm-1">
               {" "}
               <button
                 onClick={this.onClick.bind(this, arreglos)}
@@ -165,7 +166,7 @@ export default class Listado extends Component {
           </div>
         </div>
       </form>
-      </list>
+      </section>
     );
   };
 
@@ -174,7 +175,7 @@ export default class Listado extends Component {
       
        <div className="col-sm-12 align-self-center text-center"><button onClick={this.onClickButton} className={this.state.colorButton}>{this.state.message}</button></div>
       {this.state.register10.map(this.renderRegister)}
-        <p class="container sm" hidden={this.state.hidden}>*Fecha tiene el formato dd/mm/yyyy, si no sigue este formato resultara como 00/00/0000 a la Fecha. Al eliminar o guardar Cambios para poder verlos se tiene que actualizar con el boton rojo</p>  
+        <p className="container sm" hidden={this.state.hidden}>*Fecha tiene el formato dd/mm/yyyy, si no sigue este formato resultara como 00/00/0000 a la Fecha. Al eliminar o guardar Cambios para poder verlos se tiene que actualizar con el boton rojo</p>  
         </div> );
   }
 }

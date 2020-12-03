@@ -14,37 +14,50 @@ export default class Balance extends Component {
             BalanceEg:"",
             hidden:true,
             message:"Mostrar Balance actual",
-            colorButton:"btn btn-info"
-
+            colorButton:"btn btn-info",
+            pato:"",
+            Username1:this.props.Username1
         }
     
-       
+    
+
+
     }
+    
+    
+    
     onClick= () =>{
         
-        this.getBalanceIng()
-        this.getBalanceEg()
+        
         if (this.state.hidden){
+        
+        
         this.setState({hidden:false})
         this.setState({message:messageHidden})
         this.setState({ colorButton:"btn btn-danger"})
+        this.getBalanceIng()
+        this.getBalanceEg()
+        alert("Buenos dias "+ this.props.Username1 )
     }
         else{ this.setState({hidden:true})
         this.setState({message:messageVisibilty}) 
         this.setState({ colorButton:"btn btn-info"})
+        
     }
+        this.getBalanceIng()
+        this.getBalanceEg()
         
 
     }
 
     getBalanceIng = _ =>{
-        api.get('/balance').then(res1 => this.setState({BalanceIng:res1.data[0]["suma"]})
+        api.get(`/balance/${this.props.Username1}`).then(res1 => this.setState({BalanceIng:res1.data[0]["suma"]})
         )
         .catch(err => console.error(err))
    
     }
     getBalanceEg = _ =>{
-        api.get('/balanceEg').then(res1 => this.setState({BalanceEg:res1.data[0]["suma"]})
+        api.get(`/balanceEg/${this.props.Username1}`).then(res1 => this.setState({BalanceEg:res1.data[0]["suma"]})
         )
         .catch(err => console.error(err))
    
@@ -61,12 +74,12 @@ export default class Balance extends Component {
     render() {
         return (<div>
             
-           <div class="col-sm-12 align-self-center text-center " ><button value={this.state.ListadoIngresooEgreso}
+           <div className="col-sm-12 align-self-center text-center " ><button value={this.state.ListadoIngresooEgreso}
           onClick={this.onClick} name="balanceButon" className={this.state.colorButton} > {this.state.message}</button></div> 
-            <div class="container sm"  id="ActualBalance" hidden={this.state.hidden}>
+            <div className="container sm"  id="ActualBalance" hidden={this.state.hidden}>
                 
-                <h1  class="col-sm-12 align-self-center text-center " > Tu Balance Actual es: </h1>
-         <h2 class="col-sm-12 align-self-center text-center "> <b>{this.state.BalanceIng-this.state.BalanceEg+" $"}  </b>  </h2>
+                <h1  className="col-sm-12 align-self-center text-center " > Tu Balance Actual es: </h1>
+         <h2 className="col-sm-12 align-self-center text-center "> <b>{this.state.BalanceIng-this.state.BalanceEg+" $"}  </b>  </h2>
             </div></div>
         )
     }
