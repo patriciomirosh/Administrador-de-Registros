@@ -10,12 +10,12 @@ En la proxima actualizacion que le haga le agregare un modulo que envie por mail
 
 ## Posee un usuario y contraseña secretos para habilitar el boton de la tabla que almacena los usuarios, mas abajo explicare esta seccion.
 
-Se utilizo React para el front y node para el back
+
 
 Cuenta de dos carpetas principales
 1) Nodejs = En donde se encuentra el archivo que realiza las peticiones y da las respuestas
 2) React = El archivo que funciona como interfaz del servidor
-3) Y tambien una  pequeña carpeta donde se encuentra la base de datos que esta hecha en mySQL que es usada de donde tomar las peticiones y actualizarla
+3) Y tambien un pequeño archivo donde se encuentra la base de datos que esta hecha en mySQL que es usada de donde tomar las peticiones y actualizarla
 
 
 #Como usarlo : 
@@ -41,7 +41,7 @@ Luego en otra terminal de node ubicarse en la carpeta react y luego escribir el 
 El cual iniciara en el Navegador el cliente con el puerto 3000, tendra que habilitar el Cors en el navegador . 
 
 
-La segunda forma es crear nosotros todas las tablas de bases de datos e iniciar nuevos registros desde la interfas de usuario. 
+2) La segunda forma es crear nosotros todas las tablas de bases de datos e iniciar nuevos registros desde la interfas de usuario. 
 De esta forma tenemos que repetir los pasos previos  de la primer pero sin descargar el archivo de Mysql (omitir las intrucciones en negrita)
 Y luego en la interfaz del usuario en la seccion de inicio de sesion usar el usuario : Patricio y contraseña : Miroshnitshenko  Aparecera un boton que te permitira crear la tabla madre donde se guardan los usuarios. (Ojo apretar este boton solo una sola vez y nunca mas sino tratara de crear esta misma carpeta y el servidor de node lanzara error por intentar crear una carpeta que ya existe y tendras que entrar a la app.js de la carpeta nodejs y apretar algun boton para que reinicie la conexion al servidor de MySql) Y luego crear un usuario con contraseña, iniciar sesion en este y usar la aplicacion.  
 
