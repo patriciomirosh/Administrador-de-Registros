@@ -27,9 +27,10 @@ Abrir el programa de gestion de base de datos: Yo en mi caso uso Xampp con los m
 
 
 La primer forma es usando el archivo de sql incluido en el repositorio que posee la tabla de registros de usuarios y algunos usuarios con registros.
-Crear la base de datos en MySQL con el nombre node20_mysql, **importar en esta base el archivo node20_mysql.sql, (es una tabla con registros prearmados)..
+Crear la base de datos en MySQL con el nombre node20_mysql, **importar en esta base el archivo node20_mysql.sql, (es una tabla con registros prearmados).
+Los usuarios para llamar desde el programa se llaman mper,patricio, Melani con sus respectivas contraseñas: pato, patricio16 y 12**
 
-**los usuarios para llamar desde el programa se llaman mper,patricio, Melani con sus respectivas contraseñas: pato, patricio16 y 12
+
 Luego Con el cmd de node.js ubicarse en la carpeta  donde descargaron la carpeta nodejs y escribir el comando "npm i mysql" para luego instalar con el comamdo
 "npm i -D express nodemon" (nodemon era para no tener que reiniciar el server despues de un error en el desarrollo es muy util)
 Luego pegar el archivo app.js en esta dependencia.
