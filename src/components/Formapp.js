@@ -16,7 +16,7 @@ export default class Formapp extends Component {
         message:"",
         NewLog:true,
         NewLogTextButton:"Quiere Ingresar un nuevo Registro",
-        Username:this.props.Username,
+        
 
       
    }}
@@ -31,7 +31,7 @@ export default class Formapp extends Component {
   }
   onSubmit= e =>{
     if (this.state.acept===true)
-    axios.post(`http://localhost:3050/add/${this.state.Username}`,{
+    axios.post(`http://localhost:3050/add/${this.props.Username1}`,{
          
         Concepto: this.state.Concepto,
         Monto:this.state.Monto,
@@ -75,12 +75,12 @@ export default class Formapp extends Component {
             <div className="col-sm-12 align-self-center text-center" onClick={this.onClickForm}><button className="btn btn-info">{this.state.NewLogTextButton} </button></div>
            <form  hidden={this.state.NewLog} onSubmit={this.onSubmit}>
 
-           <div id="Lista" class="container-sm ">
-             <div class="row">
-            <h2  class="col-sm-12 align-self-center text-center ">Ingrese Los valores para el Nuevo Registro</h2>
+           <div id="Lista" className="container-sm ">
+             <div className="row">
+            <h2  className="col-sm-12 align-self-center text-center ">Ingrese Los valores para el Nuevo Registro</h2>
              </div>
-             <div class="row">
-            <div class="col-sm-12 align-self-center text-center ">
+             <div className="row">
+            <div className="col-sm-12 align-self-center text-center ">
             {" "}
                <label htmlFor="Concepto">Nombre de Concepto: .</label>
                <input name="Concepto" id="Concepto"
@@ -89,8 +89,8 @@ export default class Formapp extends Component {
                 required="required"/>
             </div>
             </div>
-            <div class="row">
-      <div class="col-sm-12 align-self-center text-center">
+            <div className="row">
+      <div className="col-sm-12 align-self-center text-center">
             {" "}
                <label htmlFor="Monto" >Monto: . </label>
                <input  id="Monto" 
@@ -101,8 +101,8 @@ export default class Formapp extends Component {
                <br/>
                </div>
                </div>
-            <div class="row">
-               <div class="col-sm-12 align-self-center text-center">
+            <div className="row">
+               <div className="col-sm-12 align-self-center text-center">
             {" "}
                <label > Fecha: .</label>
                <input htmlFor="Fecha" id="Fecha" 
@@ -111,8 +111,8 @@ export default class Formapp extends Component {
                <br/>
                </div>
                </div>
-            <div class="row">
-               <div class="col-sm-12 align-self-center text-center">
+            <div className="row">
+               <div className="col-sm-12 align-self-center text-center">
             {" "}
                < label  htmlFor="Tipo" >Tipo: .</label>
                <select  required="required" id="Tipo"  name="Tipo" placeholder="Seleccione una opcion" value={this.state.Tipo} onChange={this.handleInputChange.bind(this)}>
@@ -123,16 +123,16 @@ export default class Formapp extends Component {
                </select>
                </div>
                </div>
-            <div class="row">
-               <div class="col-sm-12 align-self-center text-center">
+            <div className="row">
+               <div className="col-sm-12 align-self-center text-center">
             {" "}
                <br/>
                <input type="checkbox" id="acept" name="acept" value={this.state.acept} onChange={this.handleInputChange.bind(this)}/>
                 <label  htmlFor="acept">Acepta los terminos  .</label><br></br>
                 </div>
                 </div>
-            <div class="row">
-                <div class="col-sm-12 align-self-center text-center">
+            <div className="row">
+                <div className="col-sm-12 align-self-center text-center">
             {" "}
                <button required="required" type="submit" className="btn btn-primary" onClick={this.save.bind(this)}> Guardar Cambios</button>
                

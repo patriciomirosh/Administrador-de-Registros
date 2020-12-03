@@ -12,7 +12,7 @@ export default class Last10 extends Component {
       register: [],
       ListadoIngresooEgreso: "",
       listas: "",
-      Username:this.props.Username,
+      
 
     };
   }
@@ -27,7 +27,7 @@ export default class Last10 extends Component {
   }
   
   getRegister = (_) => {
-    api.get(`/last10/${this.state.Username}`)
+    api.get(`/last10/${this.props.Username1}`)
       .then((res) => this.setState({ register: res.data }))
       .catch((err) => console.error(err));
   };

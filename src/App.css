@@ -55,6 +55,13 @@ label{
     transform: rotate(360deg);
   }
 }
+#navBar{
+  background-color:#D2D4DE;
+  
+}
+
+
+
 #ContainerLogList{
   background-color:rgb(181, 230, 235)
 }

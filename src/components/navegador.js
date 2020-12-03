@@ -6,16 +6,16 @@ export default class Nav extends Component {
       
 
       render() {
-        return(<header class="header">
-        <div class="container logo-nav-containter">
-            <div class="LOGO">
-                <a href=""><img src={icon} class="logo2" alt="Logo Go Adiestramiento"/></a>
+        return(<header className="header">
+        <div className="container logo-nav-containter">
+            <div className="LOGO">
+                <a href=""><img src={icon} className="logo2" alt="Logo Go Adiestramiento"/></a>
             </div>
-        <div class="navbar-menu">            
+        <div className="navbar-menu">            
             <div>
-                <span class="menudesplegable"></span>
+                <span className="menudesplegable"></span>
             </div>
-            <nav class="accesos">
+            <nav className="accesos">
                 <ul>
                     <li><a href="#Balance" >BALANCE</a></li>
                     <li><a href="#Last" id="">ULTIMOS DIEZ REGISTROS</a></li>
