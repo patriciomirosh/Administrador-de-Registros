@@ -51,7 +51,7 @@ Cualquier cosa si no pueden entrar, o si el cliente no retorna datos de la tabla
 
 
 
-Se realizo en React.js el Frontend, el BackEnd  en Node.js con express, La base de datos en MySql.
+Se realizo en React.js el Frontend basandome en la ordenacion por componentes para que ninguna parte del codigo supere 200 lineas y poder reutilizar el componente, el BackEnd  en Node.js con express, La base de datos en MySql.
 
 
 
