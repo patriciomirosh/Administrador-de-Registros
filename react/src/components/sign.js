@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import axios from 'axios'
 const Concepto ="Primera entrada"
 const Monto =1
-const Fecha ="2020-10-10"
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+const Fecha =date
 const Tipo = "in"
 export default class Sign extends Component {
 
@@ -61,7 +63,11 @@ export default class Sign extends Component {
 
       
        alert(`El usuario ${this.state.Username} fue creado correctamente `)
-         
+       this.setState({ Username: "",
+       Mail: "",
+       Password: "",
+       Password2: "",
+       acept: false,})  
         
     }else{alert("Las contraseñas no son iguales, intente otra vez")}
     }else{alert("Acepte los terminos")}

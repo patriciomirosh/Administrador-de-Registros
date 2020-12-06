@@ -9,7 +9,7 @@ export default class Nav extends Component {
         return(<header className="header">
         <div className="container logo-nav-containter">
             <div className="LOGO">
-                <a href=""><img src={icon} className="logo2" alt="Logo Go Adiestramiento"/></a>
+                <img src={icon} className="logo2" alt="Logo Go Adiestramiento"/>
             </div>
         <div className="navbar-menu">            
             <div>
@@ -25,6 +25,8 @@ export default class Nav extends Component {
             </nav>
         </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="./NormalFunctions.js"></script>
     </header> );
       }
     }

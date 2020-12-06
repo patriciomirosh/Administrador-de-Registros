@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {handleInputChangeNormal}   from './NormalFunctions'
 
 export default class Formapp extends Component {
       
@@ -16,21 +17,11 @@ export default class Formapp extends Component {
         message:"",
         NewLog:true,
         NewLogTextButton:"Quiere Ingresar un nuevo Registro",
-        
-
-      
+        NewLogColorButton:"btn btn-info",     
    }}
-   handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
 
-    this.setState({
-      [name]: value
-    });
-  }
   onSubmit= e =>{
-    if (this.state.acept===true)
+    if (this.state.acept===true){
     axios.post(`http://localhost:3050/add/${this.props.Username1}`,{
          
         Concepto: this.state.Concepto,
@@ -39,6 +30,11 @@ export default class Formapp extends Component {
         Tipo: this.state.Tipo
         
     })
+this.setState({Concepto: "",
+Monto: "",
+Fecha:"",
+Tipo:"",
+acept:  "",})}
       e.preventDefault();
   } 
    save(e){
@@ -62,17 +58,18 @@ export default class Formapp extends Component {
        }
     
     onClickForm = () =>{
-    if(this.state.NewLog==false){
-        this.setState({NewLog:true})
-        this.setState({NewLogTextButton:"Quiere Ingresar un nuevo Registro?"})
-    }else{this.setState({NewLog:false})
-    this.setState({NewLogTextButton:"Ocultar Formulario"})}}
+    if(this.state.NewLog===false){
+        this.setState({NewLog:true,NewLogTextButton:"Quiere Ingresar un nuevo Registro?",
+        NewLogColorButton: "btn btn-info"})
+    }else{this.setState({NewLog:false,
+   NewLogTextButton:"Ocultar Formulario",
+    NewLogColorButton: "btn btn-danger"})}}
     
     
     render() {
         return (
             <div>
-            <div className="col-sm-12 align-self-center text-center" onClick={this.onClickForm}><button className="btn btn-info">{this.state.NewLogTextButton} </button></div>
+            <div className="col-sm-12 align-self-center text-center" onClick={this.onClickForm}><button className={this.state.NewLogColorButton}>{this.state.NewLogTextButton} </button></div>
            <form  hidden={this.state.NewLog} onSubmit={this.onSubmit}>
 
            <div id="Lista" className="container-sm ">
@@ -85,7 +82,7 @@ export default class Formapp extends Component {
                <label htmlFor="Concepto">Nombre de Concepto: .</label>
                <input name="Concepto" id="Concepto"
                 type="text" value={this.state.Concepto} 
-                onChange={this.handleInputChange.bind(this)}
+                onChange={handleInputChangeNormal.bind(this)}
                 required="required"/>
             </div>
             </div>
@@ -95,7 +92,7 @@ export default class Formapp extends Component {
                <label htmlFor="Monto" >Monto: . </label>
                <input  id="Monto" 
                type="number"  
-               onChange={this.handleInputChange.bind(this)}
+               onChange={handleInputChangeNormal.bind(this)}
                value={this.state.Monto}
                name="Monto" required="required"/>
                <br/>
@@ -106,7 +103,7 @@ export default class Formapp extends Component {
             {" "}
                <label > Fecha: .</label>
                <input htmlFor="Fecha" id="Fecha" 
-               type="date" required="required" name="Fecha" onChange={this.handleInputChange.bind(this)}
+               type="date" required="required" name="Fecha" onChange={handleInputChangeNormal.bind(this)}
                value={this.state.Fecha}/>
                <br/>
                </div>
@@ -115,7 +112,7 @@ export default class Formapp extends Component {
                <div className="col-sm-12 align-self-center text-center">
             {" "}
                < label  htmlFor="Tipo" >Tipo: .</label>
-               <select  required="required" id="Tipo"  name="Tipo" placeholder="Seleccione una opcion" value={this.state.Tipo} onChange={this.handleInputChange.bind(this)}>
+               <select  required="required" id="Tipo"  name="Tipo" placeholder="Seleccione una opcion" value={this.state.Tipo} onChange={handleInputChangeNormal.bind(this)}>
                  <option value="">Seleccione una opcion </option>
                    <option value="in">Ingreso </option>
                    <option value="eg">Egreso </option>
@@ -127,7 +124,7 @@ export default class Formapp extends Component {
                <div className="col-sm-12 align-self-center text-center">
             {" "}
                <br/>
-               <input type="checkbox" id="acept" name="acept" value={this.state.acept} onChange={this.handleInputChange.bind(this)}/>
+               <input type="checkbox" id="acept" name="acept" value={this.state.acept} onChange={handleInputChangeNormal.bind(this)}/>
                 <label  htmlFor="acept">Acepta los terminos  .</label><br></br>
                 </div>
                 </div>

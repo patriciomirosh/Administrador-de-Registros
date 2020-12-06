@@ -32,16 +32,15 @@ export default class Balance extends Component {
         if (this.state.hidden){
         
         
-        this.setState({hidden:false})
-        this.setState({message:messageHidden})
-        this.setState({ colorButton:"btn btn-danger"})
+        this.setState({hidden:false,
+        message:messageHidden,
+        colorButton:"btn btn-danger"})
         this.getBalanceIng()
         this.getBalanceEg()
-        alert("Buenos dias "+ this.props.Username1 )
     }
         else{ this.setState({hidden:true})
-        this.setState({message:messageVisibilty}) 
-        this.setState({ colorButton:"btn btn-info"})
+        this.setState({message:messageVisibilty,
+        colorButton:"btn btn-info"})
         
     }
         this.getBalanceIng()
@@ -63,20 +62,13 @@ export default class Balance extends Component {
    
     }
      
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.type === "checkbox" ? target.checked : target.value;
-        const name = target.name;
     
-        this.setState({
-          [name]: value,
-        });}
     render() {
         return (<div>
             
            <div className="col-sm-12 align-self-center text-center " ><button value={this.state.ListadoIngresooEgreso}
           onClick={this.onClick} name="balanceButon" className={this.state.colorButton} > {this.state.message}</button></div> 
-            <div className="container sm"  id="ActualBalance" hidden={this.state.hidden}>
+            <div className="container sm"  id="ActualBalance" style={{width:"60%"}} hidden={this.state.hidden}>
                 
                 <h1  className="col-sm-12 align-self-center text-center " > Tu Balance Actual es: </h1>
          <h2 className="col-sm-12 align-self-center text-center "> <b>{this.state.BalanceIng-this.state.BalanceEg+" $"}  </b>  </h2>

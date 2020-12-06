@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import imp from '../sample/imp.jpg'
 import imp2 from '../sample/imp2.png'
 export default class Main extends Component {
     render() {
@@ -9,7 +8,7 @@ export default class Main extends Component {
         <div className="container">
             <div className="row">
                 <div className="col-6" >
-                    <img src={imp2 }  className="img-fluid" />
+                    <img src={imp2 } alt="Work App Team" className="img-fluid" />
                 </div>
                 <div className="col-5" id="ResizeTextOur">
                   

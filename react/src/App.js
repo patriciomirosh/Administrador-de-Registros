@@ -1,5 +1,6 @@
-import axios from 'axios'
-import './App.css';
+import axios from 'axios';
+import './App.css' ;
+import './footer.css';
 import Formapp from './components/Formapp';
 import React, { Component } from "react";
 import Last10 from './components/last10';
@@ -8,9 +9,11 @@ import Listado from './components/listado';
 import Nav from './components/navegador'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import Main from './components/main'
-import './sample/style.js'
+import Main from './components/main';
 import Sign from './components/sign';
+import Footer from './components/footer'
+
+
 
 
 class App extends Component {
@@ -19,6 +22,7 @@ class App extends Component {
     super(args);
 
     this.state = {
+      marginTopLogin: "10%",
       Register: [],
       // Client Data
       Username: "patricio",
@@ -31,14 +35,16 @@ class App extends Component {
       //Admin button of create the Register Table
       setAdmin:true,
       Username1: "",
+      incUser:false,
       //Admin : with this parameters we create a new Tableregister
-      AdminUser: "Patricio",
-      PasswordAdmin:"Miroshnitshenko",
+      AdminUser: "1",
+      PasswordAdmin:"2",
 
 
 
     }
   }
+
 //handle of inputs
   handleInputChange(event) {
     const target = event.target;
@@ -52,14 +58,17 @@ class App extends Component {
   //Users verification
   onSubmit1 = (e) => {
     e.preventDefault()
+    if (this.state.Username===this.state.AdminUser && this.state.Password===this.state.PasswordAdmin){
+      this.setState({setAdmin:false})
+      
+    }else{
     const urlUsers = `http://localhost:3050/PassWord/${this.state.Username}`
-    
 
     axios.get(urlUsers).then(res => {
-      if (this.state.Username===this.state.AdminUser && this.state.Password===this.state.PasswordAdmin){
-        this.setState({setAdmin:false})
-      }
+     
+        
       for(let i=0;i<=res.data.length-1;i++){ 
+        
       
       console.log(this.state.Username)
       
@@ -68,17 +77,19 @@ class App extends Component {
       alert("Ingreso Correctamente, Buenos dias " + this.state.Username)
       const Username1 = this.state.Username
       this.setState({ Username1: Username1 })
-
+      this.setState({incUser:true})
       this.setState({ aceptI: true })
       this.setState({ acept: false })
-      break}
+      this.setState({marginTopLogin: "0%"})
+      break} 
+    
       
-    }
-      }
-    ).catch((err) => console.log(err))
+    }if(!this.state.incUser){alert("Usuario o contraseña incorrecto ingrese nuevamente")}
+      }).catch((err) => console.log(err))
     
+   
     
-  }
+  }}
 //Buttons Funcionalitys
   onClickI = () => {
     if (this.state.aceptI) { this.setState({ aceptI: false }) }
@@ -91,12 +102,15 @@ class App extends Component {
   onClickA = () => {
      axios.post("http://localhost:3050/createtableregister") }
     
+  onClick = () =>{
+    this.setState({acept:true})
+  }
+
+
+
+
+
   
-
-
-
-
-
   render() {
     return (
 // All of the page is render in this part. You can see every component below here
@@ -108,11 +122,11 @@ class App extends Component {
         </nav>
         <Sign hidden={this.state.aceptRegister} />
         <div>
-          <div class="container fluid" id="Lista">
-            <form hidden={this.state.aceptI} onSubmit={this.onSubmit1}>
+          <div class="container fluid" id="Lista" style={{marginTop:this.state.marginTopLogin}} hidden={this.state.aceptI} >
+            <form  onSubmit={this.onSubmit1} >
 
               <div className="row">
-                <h2 className="col-sm-12 align-self-center text-center ">Ingrese Usuario</h2>
+                <h2 className="col-sm-12 align-self-center text-center ">Ingrese su usuario</h2>
               </div>
               <div className="row">
                 <div className="col-sm-12 align-self-center text-center ">
@@ -165,18 +179,22 @@ class App extends Component {
             <hr />
             <h2 style={{ textAlign: "center" }}>Ver Todos los Registros</h2>
             <div id="All"><Listado Username1={this.state.Username1} /></div>
+            <div className="col-sm-12 align-self-right text-right">
+                <button className="btn btn-danger"   onClick={this.onClick}>Cerrar sesion</button>
+              </div>
           </div>
 
 
 
 
         </div>
-
+        <Footer/>
       </div>
 
 
 
     );
+    
   }
 }
 

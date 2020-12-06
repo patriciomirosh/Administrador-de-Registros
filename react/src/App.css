@@ -1,6 +1,7 @@
 /* The style of all componentes you cant found here */
 
 /* Main */
+
 body{
   margin: 2em;
   background-image: url(sample/fondo-blanco.gif);
@@ -60,10 +61,13 @@ label{
 
 /* Modify the somes items */
 #Lista{
+  width:60%;
+  border-radius:5%;
   background-color: #D2D4DE;
   border-style: solid;
   border-color: rgb(59, 109, 124);
   font-family: 'Fira Sans', sans-serif;
+  
 
 }
 
@@ -133,7 +137,7 @@ label{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 20em;
   margin-bottom: 80px;
   width: 60%;
   height: 80px;
@@ -148,9 +152,13 @@ label{
   margin: 0%;
   padding: 0%;
   list-style: none;
+
 }
+
 .accesos ul li {
   display: inline-block;
+  font-size: 0.7em;
+ 
 }
 .accesos ul li a {
   display: block;
@@ -160,7 +168,7 @@ label{
 .accesos ul li a:hover {
   background: (123, 197, 240);
   text-decoration: none;
-  color: #58585B;
+  color: rgb(255, 255, 255);
 }
 .container {
   width: 85%;
@@ -187,11 +195,13 @@ label{
   }
   /*access for the ul, il lists*/
   .accesos {
-    background: #D2D4DE;
-    margin-top: 202px;
-    width: 100%;
+    background: #82A1B1;
+    margin-top: 15%;
+    width: 20%;
     position: fixed;
-    left: 0;
+    right:  0;
+    z-index: 99999;
+    border-radius: 10%;
   }
   .accesos ul {
     display: none;
