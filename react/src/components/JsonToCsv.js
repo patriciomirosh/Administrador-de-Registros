@@ -42,5 +42,4 @@ export function ConvertJSONToCsv(JSONData, fileName, ShowLabel) {
    
    }
    
-//lo que hace esta funcion es desplegar la hamburguesa
-
+//this function is to desplegate of the burguer (navBar)

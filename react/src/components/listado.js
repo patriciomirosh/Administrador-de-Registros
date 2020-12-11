@@ -202,13 +202,13 @@ export default class Listado extends Component {
           verlos se tiene que actualizar con el boton rojo
         </p>
         <div className="col-sm-12 align-self-center text-left">
-          <botton
+          <button
             className="btn btn-success"
             onClick={this.downloadRegister}
             hidden={this.state.hidden}
           >
             Descargar Registros
-          </botton>{" "}
+          </button>{" "}
         </div>
       </div>
     );

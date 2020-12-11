@@ -4,15 +4,31 @@ import whatsapp from "../sample/iconsFooter/whatsapp.png"
 import email from "../sample/iconsFooter/email.png"
 import facebook from "../sample/iconsFooter/facebook.png"
 import instagram from "../sample/iconsFooter/instagram.png"
+import ContactForm from './conctactForm'
 export default class Footer extends Component {
+    constructor(args) {
+        super(args);
+        this.state={
+
+        contactMe:true
+        };
+    }
+    onClick =()=>{
+        if(this.state.contactMe===true ){this.setState({contactMe:false})}
+        else{this.setState({contactMe:true})}
+    } 
+    
     render() {
+        
         return (
+           <div>
+           
             <footer style={{marginTop:"25%",}}>
             <div class="padre">
                 <ul>
                     <li>
                         <img src={consultas} alt="consultas" class="icono1"/>
-                        <label>Consultas </label>
+                        <buttom  className="btn btn-info" onClick ={this.onClick} >Consultas </buttom>
                     </li>
                     <li>
                         <img src={whatsapp} alt="celular" class="icono1"/>
@@ -43,6 +59,11 @@ export default class Footer extends Component {
             
             </div>
         </footer>
+        <div hidden={this.state.contactMe}>
+        <ContactForm  />
+        </div>
+        </div>
+
         )
     }
 }

@@ -15,10 +15,9 @@ import Footer from './components/footer'
 
 
 
-
 class App extends Component {
 
-  constructor(args) {
+  constructor(args) { 
     super(args);
 
     this.state = {
@@ -37,8 +36,10 @@ class App extends Component {
       Username1: "",
       incUser:false,
       //Admin : with this parameters we create a new Tableregister
-      AdminUser: "1",
-      PasswordAdmin:"2",
+      AdminUser: "Patricio",
+      PasswordAdmin:"Miroshnitshenko",
+      
+
 
 
 
@@ -100,7 +101,8 @@ class App extends Component {
     else { this.setState({ aceptRegister: true }) }
   }
   onClickA = () => {
-     axios.post("http://localhost:3050/createtableregister") }
+     axios.post("http://localhost:3050/createtableregister")
+    this.setState({setAdmin:true}) }
     
   onClick = () =>{
     this.setState({acept:true})
@@ -122,7 +124,7 @@ class App extends Component {
         </nav>
         <Sign hidden={this.state.aceptRegister} />
         <div>
-          <div class="container fluid" id="Lista" style={{marginTop:this.state.marginTopLogin}} hidden={this.state.aceptI} >
+          <div className="container fluid" id="Lista" style={{marginTop:this.state.marginTopLogin}} hidden={this.state.aceptI} >
             <form  onSubmit={this.onSubmit1} >
 
               <div className="row">
@@ -183,16 +185,9 @@ class App extends Component {
                 <button className="btn btn-danger"   onClick={this.onClick}>Cerrar sesion</button>
               </div>
           </div>
-
-
-
-
         </div>
         <Footer/>
       </div>
-
-
-
     );
     
   }
