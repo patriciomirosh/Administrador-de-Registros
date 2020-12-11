@@ -15,7 +15,7 @@ export default class ContactForm extends Component {
         };
     }
     onSubmit = (e) =>{
-        e.preventeDefault()
+        e.preventDefault()
        axios.post(`http://localhost:3050/email`,
        {
            name:this.state.name,
