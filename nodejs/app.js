@@ -1,6 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
-
+const nodemailer = require('nodemailer')
 const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 3050;
@@ -13,14 +13,14 @@ app.use(bodyParser.json());
 
 const connection = mysql.createConnection({
   multipleStatements: true,
-  host: 'localhost',
+  host: 'localhost', 
   user: 'root',
   Password: '',
   database: 'node20_mysql'
 });
 
  
- 
+  
 
 //Put the first Row in the table Checked 
 app.post('/first/:Username', (req, res) => {
@@ -42,7 +42,7 @@ app.post('/first/:Username', (req, res) => {
 })
   
 
-
+ 
 // last 10 logs in the table Checked
 app.get('/last10/:Username', (req, res) => {
   const {Username} = req.params;
@@ -250,9 +250,37 @@ app.get('/PassWord/:Username', (req, res) => {
 });
 
 
+//send email
+app.post('/email/', (req, res) => {
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+      user: 'mirospatricio@gmail.com',
+      pass: 'patoteam16'
+  }})
+  
+  
+  var mailOptions = {
+    from: 'mirospatricio@gmail.com',
+    to: 'pato.16.pp@gmail.com',
+    subject: `${req.body.subject}`,
+    text: `Enviado de parte de ${req.body.name} \n
+    .Cuerpo del mensaje ${req.body.message}. \n
+    Contactos: mail:${req.body.email}`}
+
+transporter.sendMail(mailOptions, function(error, info){
+  if (error){
+      console.log(error);
+      res.send(500, error.message);
+  } else {
+      console.log("Email sent"); 
+      res.status(200).jsonp(req.body);
+  }
+})
 
 
 
+})
 
 // Check connect
 connection.connect(error => {
